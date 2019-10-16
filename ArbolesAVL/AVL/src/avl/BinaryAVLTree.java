@@ -149,7 +149,9 @@ public class BinaryAVLTree <T extends Comparable> {
             }
             cont--;
         }
-
+//          actual.height = Math.max(height(actual.left), height(actual.right)) + 1;
+//        actual.setFe(height(actual.right) - height(actual.left));
+        
         actualizaFe(raiz);
         balancea(elem, raiz);
         actualizaFe(raiz);
@@ -166,6 +168,7 @@ public class BinaryAVLTree <T extends Comparable> {
         if (actual.right != null) {
             actualizaFe(actual.right);
         }
+        actual.height = Math.max(height(actual.left), height(actual.right)) + 1;
         actual.setFe(height(actual.right) - height(actual.left));
     }
 
@@ -249,13 +252,33 @@ public class BinaryAVLTree <T extends Comparable> {
      public static void main(String[] args) {
         // TODO code application logic here
     BinaryAVLTree a= new BinaryAVLTree();
-    a.insert(10);
-    a.insert(5);
-    a.insert(15);
+    a.insert(100);
+    a.insert(300);
+    a.insert(400);
+    a.insert(350);
+    a.insert(375);
+    a.insert(50);
+    a.insert(200);
+    a.insert(360);
+    a.insert(380);
+    a.insert(500);
+    a.insert(390);
     a.imprime();
-    a.insert(25);
-    a.insert(35);
+         System.out.println("\n");
+    a.remove(375);
     a.imprime();
+         System.out.println("\n");
+    a.remove(50);
+    a.imprime();
+         System.out.println("\n");
+    a.remove(400);
+    a.imprime();
+         System.out.println("\n");
+    a.remove(380);
+    
+    a.imprime();
+     
+   
      
      }
 }
